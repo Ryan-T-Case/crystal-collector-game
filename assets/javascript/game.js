@@ -16,17 +16,17 @@ $(document).ready(function () {
     //Random target score number is displayed at start of game
     //Target score number is between 19-120
     var targetScore = Math.floor(Math.random() * (120 - 19)) + 19;
-    console.log("Target Score: " + targetScore);
+    $("#targetScoreCounter").text(targetScore);
 
     //There is a counter for player total score
     var scoreCounter = 0;
-    console.log("Total Score: " + scoreCounter);
+    $("#totalScoreCounter").text(scoreCounter);
 
     //There is a counter for wins and losses
     var wins = 0;
     var losses = 0;
-    console.log("Total Wins: " + wins);
-    console.log("Total Losses: " + losses);
+    $("#winsCounter").text(wins);
+    $("#lossesCounter").text(losses);
 
     //Functions
 
@@ -47,15 +47,15 @@ $(document).ready(function () {
     var gameLogic = function () {
         //Logic for Wins
         if (scoreCounter === targetScore) {
-            console.log("You Win!");
+            $("#winsHeader").prepend("<h3>You Win!</h3>");
             wins++;
-            console.log("Total Wins: " + wins);
+            $("#winsCounter").text(wins);
             //Reset Total Score to Zero
             scoreCounter = 0;
-            console.log("Total Score Reset: " + scoreCounter);
+            $("#totalScoreCounter").text(scoreCounter);
             //Reset Target Score to new random value
             targetScore = Math.floor(Math.random() * (120 - 19)) + 19;
-            console.log("New Target Score: " + targetScore);
+            $("#targetScoreCounter").text(targetScore);
             //Calls functions to reset random value of emeralds
             assignRandomValue(redEmerald);
             console.log("Red Random: " + redEmerald.value);
@@ -68,15 +68,15 @@ $(document).ready(function () {
         }
         //Logic for Losses
         else if (scoreCounter > targetScore) {
-            console.log("You Lose!");
+            $("#winsHeader").prepend("<h3>You Lose</h3>");
             losses++;
-            console.log("Total Losses: " + losses);
+            $("#lossesCounter").text(losses);
             //Reset Total Score to Zero
             scoreCounter = 0;
-            console.log("Total Score Reset: " + scoreCounter);
+            $("#totalScoreCounter").text(scoreCounter);
             //Reset Target Score to new random value
             targetScore = Math.floor(Math.random() * (120 - 19)) + 19;
-            console.log("New Target Score: " + targetScore);
+            $("#targetScoreCounter").text(targetScore);
             //Calls functions to reset random value of emeralds
             assignRandomValue(redEmerald);
             console.log("Red Random: " + redEmerald.value);
@@ -96,28 +96,28 @@ $(document).ready(function () {
     //Red Chaos Emerald Click Event
     $("#redEmeraldButton").click(function () {
         scoreCounter += redEmerald.value;
-        console.log("New Total Score: " + scoreCounter);
+        $("#totalScoreCounter").text(scoreCounter);
         gameLogic();
     });
 
     //Blue Chaos Emerald Click Event
     $("#blueEmeraldButton").click(function () {
         scoreCounter += blueEmerald.value;
-        console.log("New Total Score: " + scoreCounter);
+        $("#totalScoreCounter").text(scoreCounter);
         gameLogic();
     });
 
     //Yellow Chaos Emerald Click Event
     $("#yellowEmeraldButton").click(function () {
         scoreCounter += yellowEmerald.value;
-        console.log("New Total Score: " + scoreCounter);
+        $("#totalScoreCounter").text(scoreCounter);
         gameLogic();
     });
 
     //Green Chaos Emerald Click Event
     $("#greenEmeraldButton").click(function () {
         scoreCounter += greenEmerald.value;
-        console.log("New Total Score: " + scoreCounter);
+        $("#totalScoreCounter").text(scoreCounter);
         gameLogic();
     });
 });
