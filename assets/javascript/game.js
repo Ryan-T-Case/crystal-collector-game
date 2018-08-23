@@ -1,67 +1,123 @@
 //Game cannot run until document is ready
 $(document).ready(function () {
-    //There are four emeralds (red, blue, yellow, green)
-    //Each emerald has random hidden value btw 1-12
-    var redEmerald = Math.floor(Math.random() * 12) + 1;
-    console.log("Red: " + redEmerald);
-    var blueEmerald = Math.floor(Math.random() * 12) + 1;
-    console.log("Blue: " + blueEmerald);
-    var yellowEmerald = Math.floor(Math.random() * 12) + 1;
-    console.log("Yellow: " + yellowEmerald);
-    var greenEmerald = Math.floor(Math.random() * 12) + 1;
-    console.log("Green: " + greenEmerald);
+  
+    //Global variables and objects
+
+    //There are four emeralds as objects (red, blue, yellow, green)
+    var redEmerald = {value: 0};
+    console.log("Red: " + redEmerald.value);
+    var blueEmerald = {value: 0};
+    console.log("Blue: " + blueEmerald.value);
+    var yellowEmerald = {value: 0};
+    console.log("Yellow: " + yellowEmerald.value);
+    var greenEmerald = {value: 0};
+    console.log("Green: " + greenEmerald.value);
+
     //Random target score number is displayed at start of game
     //Target score number is between 19-120
     var targetScore = Math.floor(Math.random() * (120 - 19)) + 19;
     console.log("Target Score: " + targetScore);
+
     //There is a counter for player total score
     var scoreCounter = 0;
     console.log("Total Score: " + scoreCounter);
+
     //There is a counter for wins and losses
     var wins = 0;
     var losses = 0;
     console.log("Total Wins: " + wins);
     console.log("Total Losses: " + losses);
-    //The total score increases by hidden emerald value on click
 
-    //Wins increase when the target score and total score match
-    var winLogic = function () {
+    //Functions
+
+    //Assigns each emerald with a random hidden value btw 1-12
+    var assignRandomValue = function (obj) {
+        obj.value = Math.floor(Math.random() * 12) + 1;
+    }
+    assignRandomValue(redEmerald);
+    console.log("Red Random: " + redEmerald.value);
+    assignRandomValue(blueEmerald);
+    console.log("Blue Random: " + blueEmerald.value);
+    assignRandomValue(yellowEmerald);
+    console.log("Yellow Random: " + yellowEmerald.value);
+    assignRandomValue(greenEmerald);
+    console.log("Green Random: " + greenEmerald.value);
+
+    //Determines logic for wins and losses
+    var gameLogic = function () {
+        //Logic for Wins
         if (scoreCounter === targetScore) {
             console.log("You Win!");
             wins++;
             console.log("Total Wins: " + wins);
+            //Reset Total Score to Zero
+            scoreCounter = 0;
+            console.log("Total Score Reset: " + scoreCounter);
+            //Reset Target Score to new random value
+            targetScore = Math.floor(Math.random() * (120 - 19)) + 19;
+            console.log("New Target Score: " + targetScore);
+            //Calls functions to reset random value of emeralds
+            assignRandomValue(redEmerald);
+            console.log("Red Random: " + redEmerald.value);
+            assignRandomValue(blueEmerald);
+            console.log("Blue Random: " + blueEmerald.value);
+            assignRandomValue(yellowEmerald);
+            console.log("Yellow Random: " + yellowEmerald.value);
+            assignRandomValue(greenEmerald);
+            console.log("Green Random: " + greenEmerald.value);
+        }
+        //Logic for Losses
+        else if (scoreCounter > targetScore) {
+            console.log("You Lose!");
+            losses++;
+            console.log("Total Losses: " + losses);
+            //Reset Total Score to Zero
+            scoreCounter = 0;
+            console.log("Total Score Reset: " + scoreCounter);
+            //Reset Target Score to new random value
+            targetScore = Math.floor(Math.random() * (120 - 19)) + 19;
+            console.log("New Target Score: " + targetScore);
+            //Calls functions to reset random value of emeralds
+            assignRandomValue(redEmerald);
+            console.log("Red Random: " + redEmerald.value);
+            assignRandomValue(blueEmerald);
+            console.log("Blue Random: " + blueEmerald.value);
+            assignRandomValue(yellowEmerald);
+            console.log("Yellow Random: " + yellowEmerald.value);
+            assignRandomValue(greenEmerald);
+            console.log("Green Random: " + greenEmerald.value);
         }
     }
 
+    //On Click Events
+
+    //Each of these events increases total score by hidden value of emerald on click
+
     //Red Chaos Emerald Click Event
     $("#redEmeraldButton").click(function () {
-        scoreCounter += redEmerald;
+        scoreCounter += redEmerald.value;
         console.log("New Total Score: " + scoreCounter);
-        winLogic();
+        gameLogic();
     });
 
     //Blue Chaos Emerald Click Event
     $("#blueEmeraldButton").click(function () {
-        scoreCounter = blueEmerald + scoreCounter;
+        scoreCounter += blueEmerald.value;
         console.log("New Total Score: " + scoreCounter);
-        winLogic();
+        gameLogic();
     });
 
     //Yellow Chaos Emerald Click Event
     $("#yellowEmeraldButton").click(function () {
-        scoreCounter = yellowEmerald + scoreCounter;
+        scoreCounter += yellowEmerald.value;
         console.log("New Total Score: " + scoreCounter);
-        winLogic();
+        gameLogic();
     });
 
     //Green Chaos Emerald Click Event
     $("#greenEmeraldButton").click(function () {
-        scoreCounter = greenEmerald + scoreCounter;
+        scoreCounter += greenEmerald.value;
         console.log("New Total Score: " + scoreCounter);
-        winLogic();
+        gameLogic();
     });
-    //Losses increase when total score goes over target score
-    //A win or loss should trigger a reset
-    //This reset will generate new random target score
-    //It will also generate new random hidden values for each emerald.
 });
