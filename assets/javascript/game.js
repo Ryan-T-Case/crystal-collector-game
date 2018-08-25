@@ -28,6 +28,10 @@ $(document).ready(function () {
     $("#winsCounter").text(wins);
     $("#lossesCounter").text(losses);
 
+    //Hide Win and Loss Message Until Needed
+    $("#youWin").hide();
+    $("#youLose").hide();
+
     //Functions
 
     //Assigns each emerald with a random hidden value btw 1-12
@@ -47,7 +51,8 @@ $(document).ready(function () {
     var gameLogic = function () {
         //Logic for Wins
         if (scoreCounter === targetScore) {
-            $("#winsHeader").prepend("<h3>You Win!</h3>");
+            $("#youLose").hide();
+            $("#youWin").show();
             wins++;
             $("#winsCounter").text(wins);
             //Reset Total Score to Zero
@@ -68,7 +73,8 @@ $(document).ready(function () {
         }
         //Logic for Losses
         else if (scoreCounter > targetScore) {
-            $("#winsHeader").prepend("<h3>You Lose</h3>");
+            $("#youWin").hide();
+            $("#youLose").show();
             losses++;
             $("#lossesCounter").text(losses);
             //Reset Total Score to Zero
@@ -86,6 +92,11 @@ $(document).ready(function () {
             console.log("Yellow Random: " + yellowEmerald.value);
             assignRandomValue(greenEmerald);
             console.log("Green Random: " + greenEmerald.value);
+        }
+        //Logic for when neither condition is met
+        else {
+            $("#youWin").hide();
+            $("#youLose").hide();
         }
     }
 

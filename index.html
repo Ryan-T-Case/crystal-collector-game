@@ -8,6 +8,9 @@
     <title>Sonic Chaos Emeralds Collector</title>
     <!-- Link to External Reset CSS File -->
     <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- Link to jQuery version 3.3.1 minified CDN  -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <!-- Link to Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
@@ -15,9 +18,6 @@
         crossorigin="anonymous"></script>
     <!-- Link to my Custom Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Link to jQuery version 3.3.1 minified CDN  -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
     <!-- Link to External Javascript file -->
     <script src="assets/javascript/game.js"></script>
 </head>
@@ -34,20 +34,22 @@
             <div class="col-md-8 bg-danger border border-dark">
                 <h2>How to Play!</h2>
                 <p class="text-justify">
-                    You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're
-                    Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're
-                    Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're
-                    Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're
-                    Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're
-                    Too Slow! You're Too Slow! You're Too Slow! You're Too Slow!
+                    Dr. Robotnik is up to no good, as usual, and its up to Sonic to stop him! Only this time, Sonic will need to harness the power of the Chaos Emeralds in order to succeed.
                 </p>
                 <p class="text-justify">
-                    You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're
-                    Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're
-                    Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're
-                    Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're
-                    Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're Too Slow! You're
-                    Too Slow! You're Too Slow! You're Too Slow! You're Too Slow!
+                    You will play as Sonic, and your goal is to collect Chaos Emeralds to gain the power necessary in order to transform into Super Sonic! But be careful not to collect too many, as their power is unstable.
+                </p>
+                <p class="text-justify">
+                    Each time you start the game, you will receive a target score. This is the amount of power you need to transform into Super Sonic. Going over this power level is too dangerous!
+                </p>
+                <p class="text-justify">
+                    There are four Chaos Emeralds below with hidden values attached to each of them. You won't know their power value until you click on them. This will add their value to your total score.
+                </p>
+                <p class="text-justify">
+                    To win the game, you need to collect enough Chaos Emeralds to generate enough power to transform into Super Sonic, and defeat Eggman. You cannot go over this target score, or you will lose the game and Eggman will be victorious. 
+                </p>
+                <p class="text-justify">
+                    Each time the game starts, the values of both the emeralds and the target score will be reset. Your wins and losses will be kept track of on the counter below. Good Luck!
                 </p>
             </div>
             <div class="col-md-4">
@@ -67,7 +69,9 @@
             <div class="col-md-6">
                 <div class="card bg-warning border border-primary">
                     <div class="card-body">
-                        <h4 class="card-title text-center" id="winsHeader">Wins:</h4>
+                        <h3 class="card-title text-center" id="youWin">You Win!</h3>
+                        <h3 class="card-title text-center" id="youLose">You Lose!</h3>
+                        <h4 class="card-title text-center">Wins:</h4>
                         <p class="card-text text-center" id="winsCounter">0</p>
                         <h4 class="card-title text-center">Losses:</h4>
                         <p class="card-text text-center" id="lossesCounter">0</p>
