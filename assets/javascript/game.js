@@ -32,9 +32,10 @@ $(document).ready(function () {
     $("#youWin").hide();
     $("#youLose").hide();
 
-    //Display regular Sonic Image and Hide Super Sonic Image
+    //Display regular Sonic Image and Hide Super Sonic and Dr Eggman Images
     $("#sonic-running").show();
     $("#super-sonic-transform").hide();
+    $("#dr-eggman-laugh").hide();
 
     //Audio
     document.getElementById("gameAudio").loop = true;
@@ -63,6 +64,7 @@ $(document).ready(function () {
             $("#youWin").show();
             //Transform into Super Sonic
             $("#sonic-running").hide();
+            $("#dr-eggman-laugh").hide();
             $("#super-sonic-transform").show();
             wins++;
             $("#winsCounter").text(wins);
@@ -87,6 +89,10 @@ $(document).ready(function () {
             //Displays lose message
             $("#youWin").hide();
             $("#youLose").show();
+            //Displays Game Over Image
+            $("#sonic-running").hide();
+            $("#super-sonic-transform").hide();
+            $("#dr-eggman-laugh").show();
             //Prevent Super Sonic from Showing on Losses
             losses++;
             $("#lossesCounter").text(losses);
@@ -111,9 +117,10 @@ $(document).ready(function () {
             //Hide these messages if no result is acheived yet
             $("#youWin").hide();
             $("#youLose").hide();
-            //Hide Super Sonic under any other conditions
+            //Hide Super Sonic and Dr Eggman under any other conditions
             $("#sonic-running").show();
             $("#super-sonic-transform").hide();
+            $("#dr-eggman-laugh").hide();
         }
     }
 
