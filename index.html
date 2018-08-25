@@ -30,53 +30,43 @@
             <br>
             <h1 class="text-center text-warning bg-danger">Chaos Emeralds Collector</h1>
         </div>
+        <div class="row">
+            <div class="col-md-12 mb-4 text-center">
+                <audio controls class="w-100 border border-dark rounded" id="gameAudio">
+                    <source src="assets/audio/green-hill-zone.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
         <div class="row mb-4">
             <div class="col-md-8 bg-danger border border-dark">
                 <h2>How to Play!</h2>
                 <p class="text-justify">
-                    Dr. Robotnik is up to no good, as usual, and its up to Sonic to stop him! Only this time, Sonic will need to harness the power of the Chaos Emeralds in order to succeed.
+                    Dr. Robotnik is up to no good, as usual, and its up to Sonic to stop him! Only this time, Sonic will need to harness the
+                    power of the Chaos Emeralds in order to succeed.
                 </p>
                 <p class="text-justify">
-                    You will play as Sonic, and your goal is to collect Chaos Emeralds to gain the power necessary in order to transform into Super Sonic! But be careful not to collect too many, as their power is unstable.
+                    You will play as Sonic, and your goal is to collect Chaos Emeralds to gain the power necessary in order to transform into
+                    Super Sonic! But be careful not to collect too many, as their power is unstable.
                 </p>
                 <p class="text-justify">
-                    Each time you start the game, you will receive a target score. This is the amount of power you need to transform into Super Sonic. Going over this power level is too dangerous!
+                    Each time you start the game, you will receive a target score. This is the amount of power you need to transform into Super
+                    Sonic. Going over this power level is too dangerous!
                 </p>
                 <p class="text-justify">
-                    There are four Chaos Emeralds below with hidden values attached to each of them. You won't know their power value until you click on them. This will add their value to your total score.
+                    There are four Chaos Emeralds below with hidden values attached to each of them. You won't know their power value until you
+                    click on them. This will add their value to your total score.
                 </p>
                 <p class="text-justify">
-                    To win the game, you need to collect enough Chaos Emeralds to generate enough power to transform into Super Sonic, and defeat Eggman. You cannot go over this target score, or you will lose the game and Eggman will be victorious. 
+                    To win the game, you need to collect enough Chaos Emeralds to generate enough power to transform into Super Sonic, and defeat
+                    Eggman. You cannot go over this target score, or you will lose the game and Eggman will be victorious.
                 </p>
                 <p class="text-justify">
-                    Each time the game starts, the values of both the emeralds and the target score will be reset. Your wins and losses will be kept track of on the counter below. Good Luck!
+                    Each time the game starts, the values of both the emeralds and the target score will be reset. Your wins and losses will
+                    be kept track of on the counter below. Good Luck!
                 </p>
             </div>
             <div class="col-md-4">
                 <img src="assets/images/sonic.png" class="img-fluid" alt="Sonic the Hedgehog">
-            </div>
-        </div>
-        <div class="row mb-5">
-            <div class="col-md-6">
-                <div class="card h-100 bg-warning border border-primary">
-                    <div class="card-body">
-                        <h4 class="card-title text-center">Target Score</h4>
-                        <br>
-                        <p class="card-text text-center" id="targetScoreCounter">0</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card bg-warning border border-primary">
-                    <div class="card-body">
-                        <h3 class="card-title text-center" id="youWin">You Win!</h3>
-                        <h3 class="card-title text-center" id="youLose">You Lose!</h3>
-                        <h4 class="card-title text-center">Wins:</h4>
-                        <p class="card-text text-center" id="winsCounter">0</p>
-                        <h4 class="card-title text-center">Losses:</h4>
-                        <p class="card-text text-center" id="lossesCounter">0</p>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="row mb-5">
@@ -100,13 +90,38 @@
                     <div class="card-body bg-light">
                         <p class="card-text text-center" id="totalScoreCounter">0</p>
                         <br>
-                        <img src="assets/images/sonic-run.gif" class="img-fluid border border-dark text-center" alt="Sonic Running">
+                        <img src="assets/images/sonic-run.gif" class="img-fluid border border-dark text-center" id="sonic-running" alt="Sonic Running">
+                        <img src="assets/images/super-sonic-transform.gif" class="img-fluid border border-dark text-center" id="super-sonic-transform"
+                            alt="Super Sonic Transformation">
                     </div>
                 </div>
             </div>
-            <div class="col-md-2"></div>
-            <div class="col-md-4">
-                <img src="assets/images/dr-eggman.png" class="img-fluid border border-primary" alt="Dr. Eggman">
+            <div class="col-md-6">
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <div class="card h-100 bg-warning border border-primary">
+                            <div class="card-body">
+                                <h4 class="card-title text-center">Target Score</h4>
+                                <br>
+                                <p class="card-text text-center" id="targetScoreCounter">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card bg-warning border border-primary">
+                            <div class="card-body">
+                                <h3 class="card-title text-center" id="youWin">You Win!</h3>
+                                <h3 class="card-title text-center" id="youLose">You Lose!</h3>
+                                <h4 class="card-title text-center">Wins:</h4>
+                                <p class="card-text text-center" id="winsCounter">0</p>
+                                <h4 class="card-title text-center">Losses:</h4>
+                                <p class="card-text text-center" id="lossesCounter">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

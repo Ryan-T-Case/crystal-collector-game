@@ -32,6 +32,13 @@ $(document).ready(function () {
     $("#youWin").hide();
     $("#youLose").hide();
 
+    //Display regular Sonic Image and Hide Super Sonic Image
+    $("#sonic-running").show();
+    $("#super-sonic-transform").hide();
+
+    //Audio
+    document.getElementById("gameAudio").loop = true;
+
     //Functions
 
     //Assigns each emerald with a random hidden value btw 1-12
@@ -51,8 +58,12 @@ $(document).ready(function () {
     var gameLogic = function () {
         //Logic for Wins
         if (scoreCounter === targetScore) {
+            //Displays win message
             $("#youLose").hide();
             $("#youWin").show();
+            //Transform into Super Sonic
+            $("#sonic-running").hide();
+            $("#super-sonic-transform").show();
             wins++;
             $("#winsCounter").text(wins);
             //Reset Total Score to Zero
@@ -73,8 +84,10 @@ $(document).ready(function () {
         }
         //Logic for Losses
         else if (scoreCounter > targetScore) {
+            //Displays lose message
             $("#youWin").hide();
             $("#youLose").show();
+            //Prevent Super Sonic from Showing on Losses
             losses++;
             $("#lossesCounter").text(losses);
             //Reset Total Score to Zero
@@ -95,8 +108,12 @@ $(document).ready(function () {
         }
         //Logic for when neither condition is met
         else {
+            //Hide these messages if no result is acheived yet
             $("#youWin").hide();
             $("#youLose").hide();
+            //Hide Super Sonic under any other conditions
+            $("#sonic-running").show();
+            $("#super-sonic-transform").hide();
         }
     }
 
