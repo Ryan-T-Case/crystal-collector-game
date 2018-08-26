@@ -1,1 +1,6 @@
-/* Plan to add custom styling to the text in the game */
+.game-text, .score-value {
+    font-family: 'Roboto', sans-serif;
+}
+.score-value {
+    font-size: 3rem;
+}

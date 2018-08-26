@@ -127,9 +127,11 @@ $(document).ready(function () {
     //On Click Events
 
     //Each of these events increases total score by hidden value of emerald on click
-
+    //Ring Sound Effect Variable to be Referenced in Click Events
+    var ring = $("#ring-sound");
     //Red Chaos Emerald Click Event
     $("#redEmeraldButton").click(function () {
+        ring[0].play();
         scoreCounter += redEmerald.value;
         $("#totalScoreCounter").text(scoreCounter);
         gameLogic();
@@ -137,6 +139,7 @@ $(document).ready(function () {
 
     //Blue Chaos Emerald Click Event
     $("#blueEmeraldButton").click(function () {
+        ring[0].play();
         scoreCounter += blueEmerald.value;
         $("#totalScoreCounter").text(scoreCounter);
         gameLogic();
@@ -144,6 +147,7 @@ $(document).ready(function () {
 
     //Yellow Chaos Emerald Click Event
     $("#yellowEmeraldButton").click(function () {
+        ring[0].play();
         scoreCounter += yellowEmerald.value;
         $("#totalScoreCounter").text(scoreCounter);
         gameLogic();
@@ -151,6 +155,7 @@ $(document).ready(function () {
 
     //Green Chaos Emerald Click Event
     $("#greenEmeraldButton").click(function () {
+        ring[0].play();
         scoreCounter += greenEmerald.value;
         $("#totalScoreCounter").text(scoreCounter);
         gameLogic();
